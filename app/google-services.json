@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "621752325668",
+    "firebase_url": "https://chat-ebc02-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "chat-ebc02",
+    "storage_bucket": "chat-ebc02.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621752325668:android:085bc7f2cb35f5a755aab1",
+        "android_client_info": {
+          "package_name": "com.plakhotski.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "621752325668-jd58oee4e5ulrdpbcc2k88v31k0oan1f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRaWP4Tw_NaFi2OAo0qHYjPLYEyLsVxKA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "621752325668-jd58oee4e5ulrdpbcc2k88v31k0oan1f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
