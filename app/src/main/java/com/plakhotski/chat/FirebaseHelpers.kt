@@ -1,17 +1,7 @@
 package com.plakhotski.chat
 
 import android.util.Log
-import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.FirebaseDatabase
-import com.plakhotski.chat.Models.Chat
-import com.plakhotski.chat.Models.Message
-import com.plakhotski.chat.Models.User
-import com.plakhotski.chat.ViewModels.SharedViewModel
-import java.text.SimpleDateFormat
-import java.util.*
 
 class FirebaseHelpers
 {

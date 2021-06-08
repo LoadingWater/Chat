@@ -10,7 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.plakhotski.chat.Models.Message
 import com.plakhotski.chat.R
 
-class MessagesRecyclerViewAdapter(val messages: MutableList<Message>): RecyclerView.Adapter<MessagesRecyclerViewAdapter.ViewHolder>()
+class MessagesRecyclerViewAdapter(var messages: MutableList<Message>): RecyclerView.Adapter<MessagesRecyclerViewAdapter.ViewHolder>()
 {
 	private val currentUserUid = FirebaseAuth.getInstance().currentUser?.uid
 	/**
@@ -62,5 +62,11 @@ class MessagesRecyclerViewAdapter(val messages: MutableList<Message>): RecyclerV
 			holder.leftMessageTextView.text = messages[position].messageText
 			holder.leftTimestampTextView.text = messages[position].timeStamp
 		}
+	}
+
+	fun updateList(list: MutableList<Message>)
+	{
+		messages = list
+		notifyDataSetChanged()
 	}
 }

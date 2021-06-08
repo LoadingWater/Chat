@@ -5,17 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
-import androidx.lifecycle.ViewModelProvider
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.plakhotski.chat.FirebaseHelpers
 import com.plakhotski.chat.Fragments.OnlineUsersFragmentDirections
 import com.plakhotski.chat.Models.User
 import com.plakhotski.chat.R
-import com.plakhotski.chat.ViewModels.SharedViewModel
 
 
-class OnlineUsersRecyclerAdapter(private val users: MutableList<User>): RecyclerView.Adapter<OnlineUsersRecyclerAdapter.ViewHolder>()
+class OnlineUsersRecyclerAdapter(private var users: MutableList<User>): RecyclerView.Adapter<OnlineUsersRecyclerAdapter.ViewHolder>()
 {
 
     /**
@@ -53,11 +51,11 @@ class OnlineUsersRecyclerAdapter(private val users: MutableList<User>): Recycler
         viewHolder.opponent = users[position]
         viewHolder.username.text = users[position].username
         // Setting status drawable
-        val statusImage = if (users[position].isOnline == true) viewHolder.username.context.getDrawable(R.drawable.ic_baseline_circle_24_green) else viewHolder.username.context.getDrawable(R.drawable.ic_baseline_circle_24_red)
+
+        val statusImage = if (users[position].isOnline == true) AppCompatResources.getDrawable(viewHolder.username.context, R.drawable.ic_baseline_circle_24_green) else AppCompatResources.getDrawable(viewHolder.username.context, R.drawable.ic_baseline_circle_24_red)
         viewHolder.username.setCompoundDrawablesWithIntrinsicBounds(null, null, statusImage, null)
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = users.size
-
 }
