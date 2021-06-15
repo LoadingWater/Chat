@@ -1,11 +1,12 @@
 package com.plakhotski.chat.Adapters
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.plakhotski.chat.Fragments.OnlineUsersFragmentDirections
@@ -23,8 +24,9 @@ class OnlineUsersRecyclerAdapter(private var users: MutableList<User>): Recycler
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
     {
         lateinit var opponent: User
-        val username: TextView = view.findViewById(R.id.username_userItem)
-        val startChat: ImageButton = view.findViewById(R.id.startChat_userItem)
+        val username: TextView = view.findViewById(R.id.username_UserItem)
+        val startChat: ImageButton = view.findViewById(R.id.startChat_UserItem)
+        val userStatus: ImageView = view.findViewById(R.id.userStatus_UserItem)
         init
         {
             // Define click listener for the ViewHolder's View.
@@ -50,10 +52,9 @@ class OnlineUsersRecyclerAdapter(private var users: MutableList<User>): Recycler
         // contents of the view with that element
         viewHolder.opponent = users[position]
         viewHolder.username.text = users[position].username
-        // Setting status drawable
-
-        val statusImage = if (users[position].isOnline == true) AppCompatResources.getDrawable(viewHolder.username.context, R.drawable.ic_baseline_circle_24_green) else AppCompatResources.getDrawable(viewHolder.username.context, R.drawable.ic_baseline_circle_24_red)
-        viewHolder.username.setCompoundDrawablesWithIntrinsicBounds(null, null, statusImage, null)
+        // Setting status drawable color
+        val color = if (users[position].isOnline == true) Color.GREEN else Color.RED
+        viewHolder.userStatus.setColorFilter(color)
     }
 
     // Return the size of your dataset (invoked by the layout manager)

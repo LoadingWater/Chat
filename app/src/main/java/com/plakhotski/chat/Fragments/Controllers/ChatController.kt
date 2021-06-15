@@ -47,6 +47,12 @@ class ChatController(val chatFragment: ChatFragment) : BaseController(chatFragme
 		}
 	}
 
+	fun setUpHandleForUserDisconnection()
+	{
+		val uid = authIns.currentUser!!.uid
+		dbRef.child("users").child(uid).child("isOnline").onDisconnect().setValue("false")
+	}
+
 	private fun hookRecyclerViewToMessages()
 	{
 		val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView_fragmentChat)

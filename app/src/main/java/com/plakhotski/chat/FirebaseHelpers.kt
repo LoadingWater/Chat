@@ -22,21 +22,5 @@ class FirebaseHelpers
                 }
             }
         }
-
-        fun addUserToOnlineUserNode(uid: String)
-        {
-            val ref = FirebaseDatabase.getInstance().reference
-            ref.child("offlineUsers").child(uid).removeValue()
-            ref.child("onlineUsers").child(uid).setValue(uid).addOnCompleteListener {
-                if (it.isSuccessful)
-                {
-                    Log.i(TAG, "Added online user to the db.")
-                }
-                else
-                {
-                    Log.e(TAG, "Failed online user to the db.")
-                }
-            }
-        }
     }
 }
